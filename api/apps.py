@@ -22,6 +22,6 @@ df = df.drop(df[(df['Label'] != '0') & (df['Label'] != '1')].index)
 class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'api'
-    MODEL_FILE = os.path.join(settings.MODELS, "my_random_forest.joblib")
+    MODEL_FILE = os.path.join(settings.MODELS, "my_log.pkl")
     CLEANED_DATA = df
     model = joblib.load(MODEL_FILE)
