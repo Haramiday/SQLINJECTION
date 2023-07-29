@@ -11,11 +11,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 df = ApiConfig.CLEANED_DATA
 
-#declare the  dependent features
-X = df['Sentence']
 #CountVectorizer
-vectorizer = CountVectorizer(min_df = 2, max_df = 0.8,max_features=6629, dtype = np.float32)
-X = vectorizer.fit_transform(X.values.astype('U')).toarray()
+vectorizer = CountVectorizer(max_features=50, dtype = np.float32)
+X = vectorizer.fit_transform(df["Sentence"].values).toarray()
 
 
 class Prediction(APIView):
